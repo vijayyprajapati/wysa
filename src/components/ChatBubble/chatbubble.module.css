@@ -1,0 +1,51 @@
+.system{
+    width: fit-content;
+    max-width: 60%;
+    background:   var(--primary);
+    text-align: left;
+    border-radius: 0rem 1rem 1rem 1rem;
+    font-size: medium;
+    font-weight: normal;
+    transform: scale(0);
+    padding: 1rem;
+
+    margin: 10px;
+    
+    animation: message 0.30s ease-in 0s forwards;
+    animation-delay : var(--timeline);
+}
+
+
+.user{
+    width: fit-content;
+    max-width: 60%;
+    background:   var(--secondary);
+    text-align: right;
+    margin-left: auto; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0;
+    border-radius: 1rem 0rem 1rem 1rem;
+    font-size: medium;
+    font-weight: normal;
+    transform: scale(0);
+    padding: 1rem;
+ 
+    
+    animation: message 0.30s ease-in 0s forwards;
+    animation-delay : var(--timeline);
+}
+@keyframes message {
+   0% { 
+      transform: scale(0);
+   }
+   50% { 
+      transform: scale(.5); 
+   }
+   100% { 
+      transform: scale(1); 
+      max-height: 100vmax; 
+      overflow: visible; 
+      padding-top: 1rem;
+   }
+}

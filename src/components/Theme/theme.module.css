@@ -1,0 +1,31 @@
+.theme{
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+
+    width: 100%;
+    z-index: 1;
+}
+.themebox {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background: #d6fafa;
+}
+.pallete{
+    display: grid;
+    padding: 1rem;
+    cursor: pointer;
+    grid-template-columns: auto auto auto auto;
+    
+}
+.pallete:hover{
+    
+    background: rgb(231, 228, 228);
+
+}

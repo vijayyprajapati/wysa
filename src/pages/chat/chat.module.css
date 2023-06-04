@@ -1,0 +1,38 @@
+.chatpage{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+}
+.chatbox{
+    height: 60vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.typer{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+.typer input {
+    width: 85%;
+    height: 30%;
+    border: none;
+    border-radius: 1rem;
+    padding: 10px;
+}
+.typer button{
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    border-radius: 10px;
+    background: var(--secondary);
+}
+.typer button:hover{
+     box-shadow: 1px 1px #c7c2c2;
+}

@@ -1,0 +1,43 @@
+.loginpage{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+}
+
+.logo img {
+    width: 150px;
+}
+
+.loginpage form{
+    width: 500px;
+    display: flex;  
+    border: 0.5px solid #858383;
+    padding: 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+}
+.loginpage form input{
+    box-shadow: 0 3px 5px rgba(248, 164, 164, 0.08);
+    margin: 10px;
+    background: #fff;
+    border-radius: 1rem;
+    padding: 15px 20px;
+}
+
+.loginpage form button{
+    padding: 15px 20px;
+    border-radius: 6px;
+    border: none;
+    background: var(--secondary);
+    font-weight: bold;
+    margin-top: 30px;
+    cursor: pointer;
+    
+}
+.loginpage form button:hover{
+    background: #84d4ce;
+    
+}
