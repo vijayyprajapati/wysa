@@ -3,8 +3,8 @@ import "./App.css";
 import { getLocalStorage } from "./utils/localStorage";
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/login";
-import Chat from "./pages/chat";
+import Login from "./pages/login/login";
+import Chat from "./pages/chat/chat";
 
 function App() {
   const login = getLocalStorage("login-state");

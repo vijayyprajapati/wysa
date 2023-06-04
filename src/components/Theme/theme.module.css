@@ -1,31 +1,109 @@
-.theme{
-    position:absolute;
+.theme {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: rgba(0,0,0,0.5);
-
+    background: rgba(0, 0, 0, 0.5);
     width: 100%;
     z-index: 1;
-}
-.themebox {
-    width: 30%;
-    height: 30%;
+  }
+  
+  .themebox {
+    width: 300px;
+    padding: 20px;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
     background: #d6fafa;
-}
-.pallete{
-    display: grid;
-    padding: 1rem;
-    cursor: pointer;
-    grid-template-columns: auto auto auto auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dropdown {
+    display: flex;
+    flex-direction: column;
     
-}
-.pallete:hover{
-    
-    background: rgb(231, 228, 228);
 
-}
+    justify-content: flex-start;
+    
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .optionCircle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+  } 
+  
+  .bullet {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .customOption {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    margin-top: 10px;
+    border-top: 1px solid #dddddd;
+    cursor: pointer;
+  }
+  
+  .customOption:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .customOption input {
+    margin-right: 8px;
+  }
+  
+  .customOption label {
+    font-size: 14px;
+  }
+  
+  .customOption input[type="color"] {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .customOption input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  .customOption input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+    padding: 0;
+  }
+  
+  .customOption input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 4px;
+    padding: 0;
+  }
+  
+  .customOption input[type="color"]::-moz-focus-inner {
+    border: 0;
+  }
+  

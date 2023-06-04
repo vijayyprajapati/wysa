@@ -1,38 +1,59 @@
-.chatpage{
+.chatpage {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: var(--background);
-}
-.chatbox{
+    padding: 20px;
+  }
+  
+  .chatbox {
     height: 60vh;
-    width: 40%;
+    width: 100%;
+    max-width: 500px; /* Adjust the maximum width as per your requirement */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-}
-.typer{
+    margin-top: 20px;
+  }
+  
+  .typer {
     display: flex;
-    width: 40%;
-    justify-content: space-around;
-}
-.typer input {
-    width: 85%;
-    height: 30%;
-    border: none;
-    border-radius: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 500px;
+  }
+  
+  .typer input {
+    flex: 1;
+
+    height: 40px;
     padding: 10px;
-}
-.typer button{
-    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .typer button {
+    padding: 5px 20px;
+    margin-left: 20px;
     border: none;
     cursor: pointer;
-    width: 10%;
     border-radius: 10px;
     background: var(--secondary);
-}
-.typer button:hover{
-     box-shadow: 1px 1px #c7c2c2;
-}
+    color: white;
+  }
+  
+  .typer button:hover {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media screen and (max-width: 600px) {
+    .chatbox {
+      max-height: 90vh;
+    }
+  }
+  

@@ -1,7 +1,8 @@
 import Styles from "./theme.module.css";
-import { themes } from "../../constants/themes";
+import { themes } from "../../Data/themes";
 import { setLocalStorage } from "../../utils/localStorage";
 import { useState } from "react";
+
 const Themes = ({ setOpen }) => {
   const [custom, setCustom] = useState({
     background: "#e66465",
@@ -12,72 +13,54 @@ const Themes = ({ setOpen }) => {
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-
     setCustom({ ...custom, [name]: value });
   };
+
   return (
-    <div
-      className={Styles.theme}
-      onClick={(e) => {
-        setOpen(false);
-      }}
-    >
+    <div className={Styles.theme} onClick={() => setOpen(false)}>
       <div className={Styles.themebox}>
         <b>Select Theme</b>
-        {themes.map((value, ind) => {
-          return <Theme ind={ind} key={ind} value={value} />;
-        })}
+        {themes.map((value, ind) => (
+          <Theme key={ind} value={value} />
+        ))}
 
         <div
-          className={Styles.pallete}
+          className={Styles.dropdown}
           onClick={(e) => {
+            e.stopPropagation();
             const root = document.querySelector(":root");
-            e.preventDefault();
             root.style.setProperty("--background", custom.background);
             root.style.setProperty("--primary", custom.primary);
             root.style.setProperty("--secondary", custom.secondary);
             setLocalStorage("theme", custom);
           }}
         >
-          <div> Custom </div>
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
+          <div className={Styles.customOption}>
             <input
               type="color"
-              id="body"
               name="background"
               value={custom.background}
               onChange={handleChange}
             />
+            <label>Background</label>
           </div>
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
+          <div className={Styles.customOption}>
             <input
               type="color"
-              id="body"
               name="primary"
               value={custom.primary}
               onChange={handleChange}
             />
+            <label>Primary</label>
           </div>
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
+          <div className={Styles.customOption}>
             <input
               type="color"
-              id="body"
               name="secondary"
               value={custom.secondary}
               onChange={handleChange}
             />
+            <label>Secondary</label>
           </div>
         </div>
       </div>
@@ -85,44 +68,26 @@ const Themes = ({ setOpen }) => {
   );
 };
 
-const Theme = ({ ind, value }) => {
+const Theme = ({ value }) => {
+  const { background, primary, secondary } = value;
+
   return (
     <div
-      className={Styles.pallete}
+      className={Styles.option}
       onClick={(e) => {
+        e.stopPropagation();
         const root = document.querySelector(":root");
-        root.style.setProperty("--background", value.background);
-        root.style.setProperty("--primary", value.primary);
-        root.style.setProperty("--secondary", value.secondary);
+        root.style.setProperty("--background", background);
+        root.style.setProperty("--primary", primary);
+        root.style.setProperty("--secondary", secondary);
         setLocalStorage("theme", value);
       }}
     >
-      <div>Theme {ind} </div>
-      <div
-        style={{
-          height: "25px",
-          width: "25px",
-          borderRadius: "50%",
-          background: value.background,
-        }}
-      />
-      <div
-        style={{
-          height: "25px",
-          width: "25px",
-          borderRadius: "50%",
-          background: value.primary,
-        }}
-      />
-      <div
-        style={{
-          height: "25px",
-          width: "25px",
-          borderRadius: "50%",
-          background: value.secondary,
-        }}
-      />
+      <div className={Styles.bullet} style={{ backgroundColor: background }}></div>
+      <div className={Styles.optionCircle} style={{ backgroundColor: primary }}></div>
+      <div className={Styles.optionCircle} style={{ backgroundColor: secondary }}></div>
     </div>
   );
 };
+
 export default Themes;

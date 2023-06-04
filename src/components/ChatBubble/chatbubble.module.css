@@ -7,14 +7,35 @@
     font-size: medium;
     font-weight: normal;
     transform: scale(0);
-    padding: 1rem;
-
+    padding: 0.5rem;
+   padding-top: 0;
     margin: 10px;
     
     animation: message 0.30s ease-in 0s forwards;
     animation-delay : var(--timeline);
 }
 
+.botMessage
+{
+display: flex;
+align-items: flex-start;
+
+}
+.botMessage .profileImage {
+margin-top: 10px;
+width: 35px;
+height: 35px;
+}
+.userMessage 
+{
+   display: flex;
+   align-items: start;
+}
+.userMessage .profileImage {
+   margin-top: 10px;
+   width: 35px;
+   height: 35px;
+   }
 
 .user{
     width: fit-content;
@@ -24,17 +45,23 @@
     margin-left: auto; 
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 0;
+    margin-right: 10px;
     border-radius: 1rem 0rem 1rem 1rem;
     font-size: medium;
     font-weight: normal;
     transform: scale(0);
     padding: 1rem;
- 
-    
     animation: message 0.30s ease-in 0s forwards;
     animation-delay : var(--timeline);
 }
+
+.profileImage {
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   margin-right: 10px;
+ }
+ 
 @keyframes message {
    0% { 
       transform: scale(0);
