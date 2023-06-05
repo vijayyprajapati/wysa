@@ -1,12 +1,11 @@
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Styles from "./chat.module.css";
 import ChatBubble from "../../components/ChatBubble/chatbubble";
-
 import { chats } from "../../Data/chat";
 import NavBar from "../../components/NavBar/navbar";
-import { useEffect, useState, useRef } from "react";
-import Theme from "../../components/Theme/theme";
 import { getLocalStorage } from "../../utils/localStorage";
-import { useNavigate } from "react-router-dom";
+import Theme from "../../components/Theme/theme";
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -40,10 +39,10 @@ const Chat = () => {
   }
 
   const handleChange = (e) => {
-    e.preventDefault();
     const { value } = e.target;
     setMessage(value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message === "") return;
@@ -54,16 +53,31 @@ const Chat = () => {
     setChatData([...chatData, data]);
     setMessage("");
   };
-  
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSubmit(e);
     }
   };
 
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const data = {
+          image: reader.result,
+          type: "image",
+        };
+        setChatData([...chatData, data]);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className={Styles.chatpage}>
-      {open && <Theme setOpen={setOpen}></Theme>}
+      {open && <Theme setOpen={setOpen} />}
       <NavBar open={open} setOpen={setOpen} />
       <div className={Styles.chatbox} ref={chatBoxRef}>
         {chatData.map((value, ind) => {
@@ -73,6 +87,7 @@ const Chat = () => {
               key={ind}
               type={value.type}
               value={value.text}
+              image={value.image}
             />
           );
         })}
@@ -81,21 +96,28 @@ const Chat = () => {
         <input
           type="text"
           name="message"
-          placeholder="message"
+          placeholder="Message"
           value={message}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
         />
-        <button onClick={handleSubmit}  type="submit" > <span class="material-symbols-outlined">
-send
-</span></button>
+        <label className={Styles.fileInput}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+         <span class="material-symbols-outlined">
+attach_file
+</span>
+        </label>
+        <button onClick={handleSubmit} type="submit">
+          <span className="material-symbols-outlined">send</span>
+        </button>
+        
       </div>
     </div>
   );
 };
 
 export default Chat;
-
-
-
-
