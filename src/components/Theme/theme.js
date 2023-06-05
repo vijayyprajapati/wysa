@@ -1,5 +1,5 @@
 import Styles from "./theme.module.css";
-import { themes } from "../../Data/themes";
+import { themes} from "../../Data/themes";
 import { setLocalStorage } from "../../utils/localStorage";
 import { useState } from "react";
 
@@ -7,7 +7,7 @@ const Themes = ({ setOpen }) => {
   const [custom, setCustom] = useState({
     background: "#e66465",
     primary: "#f6b73c",
-    secondary: "#ffffff",
+    secondary: "#00B9FF",
   });
 
   const handleChange = (e) => {

@@ -4,7 +4,7 @@ import ChatBubble from "../../components/ChatBubble/chatbubble";
 import { chats } from "../../Data/chat";
 import NavBar from "../../components/NavBar/navbar";
 import { useEffect, useState, useRef } from "react";
-import Theme from "../../components/Theme";
+import Theme from "../../components/Theme/theme";
 import { getLocalStorage } from "../../utils/localStorage";
 import { useNavigate } from "react-router-dom";
 
