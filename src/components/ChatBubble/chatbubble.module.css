@@ -42,7 +42,7 @@ height: 35px;
 .user{
     width: fit-content;
     max-width: 60%;
-    background:   var(--secondary);
+    background:   #ffff;
     text-align: right;
     margin-left: auto; 
     margin-top: 10px;

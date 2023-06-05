@@ -93,29 +93,28 @@ const Chat = () => {
         })}
       </div>
       <div className={Styles.typer}>
-        <input
-          type="text"
-          name="message"
-          placeholder="Message"
-          value={message}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-        />
-        <label className={Styles.fileInput}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
-         <span class="material-symbols-outlined">
-attach_file
-</span>
-        </label>
-        <button onClick={handleSubmit} type="submit">
-          <span className="material-symbols-outlined">send</span>
-        </button>
-        
-      </div>
+  <input
+    type="text"
+    name="message"
+    placeholder="Message"
+    value={message}
+    onChange={handleChange}
+    onKeyDown={handleKeyDown}
+  />
+  <label htmlFor="imageUpload" className={Styles.fileInput}>
+    <span className="material-symbols-outlined">attach_file</span>
+    <input
+      type="file"
+      accept="image/*"
+      id="imageUpload"
+      onChange={handleImageUpload}
+    />
+  </label>
+  <button onClick={handleSubmit} type="submit">
+    <span className="material-symbols-outlined">send</span>
+  </button>
+</div>
+
     </div>
   );
 };
